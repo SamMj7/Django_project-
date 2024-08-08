@@ -1,0 +1,8 @@
+{% extends 'parent.html' %}
+{% block main %}
+    <form method="post">
+        {{s.as_p}}
+        {% csrf_token %}
+        <button type="submit">Register</button>
+    </form>
+{% endblock %}

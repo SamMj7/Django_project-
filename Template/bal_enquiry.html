@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Enquiry</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-size: cover;
+            background-image: url("{% static 'image/baleq.jpg' %}");
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 400px;
+            text-align: center;
+        }
+        .top-right{
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #007BFF;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        button {
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            font-size: 14px;
+            color: #333;
+        }
+        p.error {
+            color: red;
+        }
+        p.balance {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<div class="top-right"><a href="{% url 'bank:home' %}">Return Home</a></div>
+<body>
+    <div class="container">
+<h1><b><center>Welcome to ABC Bank</center></b></h1>
+<form method="post">
+    {% csrf_token %}
+    {{ e.as_p }}
+    <button type="submit">Check Balance</button>
+</form>
+{% if error_message %}
+        <p style="color: red;">{{ error_message }}</p>
+    {% endif %}
+    {% if bal is not None %}
+        <p>Your balance is: {{ bal }}</p>
+    {% endif %}
+    <p>Please vist homepage for your next Transaction.</p></div>
+</body>
+{% include 'includes/footer.html' %}
+</html>

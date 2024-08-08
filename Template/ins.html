@@ -1,0 +1,23 @@
+{% extends 'parent.html' %}
+{% block main %}
+    <table align="center" border="6" width = "50%" height = "50%" >
+        <tr>
+            <th>Aadhar_number</th>
+            <th>Account_no</th>
+            <th>Customer_NAME</th>
+            <th>Balance</th>
+            <th>Date_of_Opening</th>
+        </tr>
+        {% for i in d %}
+        <tr>
+            <td>{{ i.Aadhar_number }}</td>
+            <td>{{ i.Account_no }}</td>
+            <td>{{ i.Customer_NAME }}</td>
+            <td>{{ i.Balance }}</td>
+            <td>{{ i.Date_of_Opening }}</td>
+            <td><a href="{% url 'bank:credit' i.Account_no %}">Credit</a></td>
+            <td><a href="{% url 'bank:debit' i.Account_no %}">Debit</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

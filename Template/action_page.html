@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("{% static 'image/act1.jpg' %}");
+            background-size: 100% ;
+            margin: 0;
+            padding: 0;
+
+        }
+        .top-right {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        h1, h2, h3 {
+            color: #333;
+            text-align: center;
+        }
+        h1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 20px 0;
+            margin: 0;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        p {
+            font-size: 18px;
+            text-align: center;
+            color: #555;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: center;
+        }
+        ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        ul li a {
+            text-decoration: none;
+            color: #754caf;
+            font-weight: bold;
+        }
+        ul li a:hover {
+            text-decoration: underline;
+        }
+        .action-link {
+            display: block;
+            text-align: center;
+            margin: 20px 0;
+            color: #221895;
+            font-weight: bold;
+        }
+        .action-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right"><a href="{% url 'bank:home' %}" class="action-link">Return Home</a></div>
+<h1><b><center>Welcome to ABC Bank</center></b></h1>
+<h2>Account Opening Successful!</h2>
+<p> Account no : {{ Account_no }}</p>
+<p> Customer_NAME : {{ Customer_NAME }}</p>
+<p> Balance : {{ Balance }}</p>
+<h3>Choose an action:</h3>
+<ul>
+    <li><a href="{% url 'bank:credit' Account_no %}">Credit</a></li>
+    <li><a href="{% url 'bank:debit' Account_no %}">Debit</a></li>
+</ul>
+</body>
+{% include 'includes/footer.html' %}
+</html>

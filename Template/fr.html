@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            background-image: url("{% static 'image/acc.jpg' %}");
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.155);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .top-right {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        footer {
+            margin-top: 20px;
+            padding-top: 10px;
+            border-top: 1px solid #ccc;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right">
+        <a href="{% url 'bank:home' %}">Return Home</a>
+    </div>
+    <div class="container">
+    <h1><b><center>Welcome to ABC Bank</center></b></h1>
+    <h2>Account Opening :</h2>
+    <p><t>Kindly enter your details correctly for opening your account.</p>
+    <form method="post">
+        {{b.as_p}}
+        {% csrf_token %}
+        <input type="submit">
+    </form>
+    <footer>
+    <h2>Note :</h2>
+        <p>1. Enter the last four digits of your Aadhar Number.</br></p>
+        <p>2. Enter your name in capital letters, with the last name or initials at the end.</br></p>
+        <p>3. Date format is "YYYY-MM-DD".</p>
+    </footer><p><center>© Copyright ABC Bank (APM Id: Webs_Info_807)</center></p>
+    </div>
+</body>
+</html>
