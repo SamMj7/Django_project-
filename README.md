@@ -7,4 +7,4 @@ Implemented CRUD on customer data management. Integrated **Django models** with 
 Designed and rendered user interfaces using Django templates. Created responsive forms for a variety of banking operations, together with **error handling** and success messages. 
 Added error handling mechanisms in case of failure to find account number. User feedback in case of errors was provided through error messages, and assurance of data integrity during transaction was added.
 Used Django's URL dispatcher to map views to specific URLs. Implemented dynamic URL routing for actions such as crediting and debiting accounts that ensure accurate redirection and display of data.
-This is a maiden attempt to build a real world project regarding 'banking operations' to demonstrate my knowlege on full stack development. There is always room for improvement (leaning something new). 
+This is a maiden attempt to build a real world project regarding 'banking operations' to demonstrate my knowlege on full stack development. There is always room for improvement (learning something new). 
